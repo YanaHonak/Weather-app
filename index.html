@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="src/style.css" />
+  <video autoplay muted loop id="background-video">
+    <source src="videos/Cloudy sky.mp4" type="video/mp4" >
+  </video>
+
+    <title>Weather forecast</title>
+
+</head>
+<body>
+
+  <div class="container">
+    
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
+
+<div class=".col-sm-3">
+  <div class="card h-55">
+    <form class="d-flex" role="search" id="search-form">
+      <input class="form-control me-md-1" id="search-form-input" type="search" placeholder="Type to search" aria-label="Search" value="Nicosia">
+      <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+
+    <button type="button" class="btn btn-outline-primary" id="your-location" >Your location</button>
+
+    </div>
+    
+    <h1 id="city">
+      Nicosia <img src="img/Location2.png" style="width: 5%" id="location">
+    </h1>
+    
+    <ul>
+      <li id="date">
+    Tuesday, 16:00
+      </li>
+    </ul>
+    </div>
+   
+  
+  <div class=".col-sm-3">
+    <div class="card h-55">
+      <img src="img/sunny.png" style="width:fit-content" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <p class="card-day">Monday</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">32°C</h5>
+        <p id="description">Being developed</p>
+      <p class="card-text">Wind: 11 km/h</p>
+      <p class="card-text" id="pressure">Pressure: Mb</p>
+      <p class="card-text" id="humidity">Humidity: 18%</p>
+      </div>
+      
+    </div>
+  </div>
+  <div class=".col-sm-3">
+    <div class="card h-55">
+      <img src="img/sunny.png" style="width:fit-content" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <p class="card-day">Tuesday</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">29°C</h5>
+      <p id="description">Being developed</p>
+      <p class="card-text">Wind: 11 km/h</p>
+      <p class="card-text">Pressure: Mb</p>
+      <p class="card-text">Humadity: 18%</p>
+      </div>
+    
+    </div>
+  </div>
+  <div class=".col-sm-3">
+    <div class="card h-55">
+      <img src="img/sunny.png" style="width:fit-content" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <p class="card-day">Wensday</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">31°C</h5>
+        <p id="description">Being developed</p>
+        <p class="card-text">Wind: 11 km/h</p>
+        <p class="card-text">Pressure: Mb</p>
+        <p class="card-text">Humadity: 18%</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+</br>
+
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
+
+  <div class=".col-sm-6">
+    <div class="card h-55">
+      <img src="img/sunny.png" style="width:fit-content" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <p class="card-today">Today</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" id="today-temperature">31°C</h5>
+        <p id="today-description">Description</p>
+        <p class="card-text" id="wind">Wind: 11 km/h</p>
+        <p class="card-text" id="presipation">Pressure: Mb</p>
+        <p class="card-text" id="today-humidity">Humidity: 18%</p>
+      </div>
+  
+    </div>
+  </div>
+
+
+  <div class=".col-sm-6">
+    <div class="card h-55">
+      <img src="img/sunny.png" style="width:fit-content" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <p class="card-day">Thursday</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">31°C</h5>
+        <p id="description">Being developed</p>
+        <p class="card-text">Wind: 11 km/h</p>
+        <p class="card-text">Pressure: Mb</p>
+        <p class="card-text" id="humidity">Humidity: 18%</p>
+      </div>
+     
+    </div>
+  </div>
+  <div class=".col-sm-6">
+    <div class="card h-55">
+      <img src="img/sunny.png" style="width:fit-content" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <p class="card-day">Friday</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">33°C</h5>
+        <p id="description">Being developed</p>
+        <p class="card-text">Wind: 11 km/h</p>
+        <p class="card-text">Pressure: Mb</p>
+        <p class="card-text">Humadity: 18%</p>
+      </div>
+      
+    </div>
+  </div>
+  <div class=".col-sm-6">
+    <div class="card h-55">
+      <img src="img/sunny.png" style="width:fit-content" class="card-img-top" alt="...">
+      <div class="card-img-overlay">
+        <p class="card-day">Sunday</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">34°C</h5>
+        <p id="description">Being developed</p>
+        <p class="card-text">Wind: 11 km/h</p>
+        <p class="card-text">Pressure: Mb</p>
+        <p class="card-text">Humadity: 18%</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </div>
+</div>
+        </div>
+      </div>
+  </div>
+
+  <script>
+    let video = document.querySelector('video')
+      video.playbackRate = 0.1
+  </script>
+  <script src="src/index.js"></script>
+</body>
+
+</html>
