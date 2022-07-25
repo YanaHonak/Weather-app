@@ -48,13 +48,14 @@ function displayWeather(response) {
   let todayWind = document.querySelector("#wind");
   let todayPressure = document.querySelector("#presipation");
   let todayHumidity = document.querySelector("#today-humidity");
+  let iconElement = document.querySelector("#icon");
         let temperature = Math.round(response.data.main.temp);
         let description = response.data.weather[0].description;
         let wind = Math.round(response.data.wind.speed);
         let pressure = Math.round(response.data.main.pressure);
         let humidity = Math.round(response.data.main.humidity);
         let city = response.data.name;
-  
+
   // take the name of the city from API
   console.log(city);
 
@@ -64,6 +65,10 @@ function displayWeather(response) {
   todayWind.innerHTML = `Wind ${wind} km/h`;
   todayPressure.innerHTML = `Pressure ${pressure} mB`;
   todayHumidity.innerHTML = `Humidity ${humidity}%`;
+  iconElement.setAttribute(
+    "src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );     
+  
       }
 
 

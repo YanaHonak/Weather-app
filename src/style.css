@@ -1,19 +1,9 @@
-#background-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    
+body {
+font-family: Arial, sans-serif;
 }
-
 h1{
     color: blue;
-    margin-top: 115px;
+    margin-top: 0px;
 }
 h2{
     margin-top: 20px;
@@ -43,10 +33,12 @@ background-color: transparent;
 background-color: var(--bs-card-cap-bg)
 
 }
-.container { 
+.container {
+max-width: 900px;
 margin-top: 60px;
 background-image: var(--bs-gradient);
 padding: 30px;
+border: 1px solid #dadde1;
 border-radius: 3px;
 }
 .card-text, .date {
@@ -66,7 +58,13 @@ border: 1px solid #0d6efd;
 }
 
 #your-location {
-margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.weather-temperature img {
+
+    height: 64px;
+    width: 64px;
 }
 
 .footer{
