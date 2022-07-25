@@ -7,7 +7,10 @@ let hours = today.getHours();
 let minutes = today.getMinutes();
 ul.innerHTML = `${day},  ${hours}:${minutes}`;
 
-findData('Nicosia');
+
+getCurrentPosition();
+
+/*findData('Nicosia');*/
 
 function search(event) {
 event.preventDefault();
@@ -109,8 +112,8 @@ axios.get(`${url}`).then(displayWeather);
 }
 
 
-let locationButton = document.querySelector("#your-location");
-locationButton.addEventListener("click", getCurrentPosition);
+/*let locationButton = document.querySelector("#your-location");
+locationButton.addEventListener("click", getCurrentPosition);*/
 
 
 function showLocation(location) {

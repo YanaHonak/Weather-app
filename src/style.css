@@ -30,7 +30,8 @@ font-weight: lighter;
 
 .card, .list-group-item {
 background-color: transparent;
-background-color: var(--bs-card-cap-bg)
+background-color: var(--bs-card-cap-bg);
+position: relative;
 
 }
 .container {
@@ -46,9 +47,13 @@ margin: 0px;
 }
 
 .card-day, .card-today {
-text-align: center;
+text-align:left;
 color: blue;
 font-weight: bold;
+margin-bottom: 0rem;
+
+
+
 }
 
 
@@ -62,11 +67,30 @@ margin-bottom: 20px;
 }
 
 .weather-temperature img {
-
-    height: 64px;
-    width: 64px;
+float: left;
+height: 60px;
+width: 60px;
 }
+
+.today-description {
+margin-bottom: 1px;
+}
+
 
 .footer{
     text-align: center;
+}
+
+
+
+.card.h-55
+{
+
+height: 100%;
+}
+
+.card-title
+{
+    font-size: 2rem;
+    line-height: 2;
 }
