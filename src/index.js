@@ -73,8 +73,7 @@ function displayForecast(response) {
           </div>
 
           <p id="description">${forecastDay.weather[0].description}</p>
-          <p class="card-text">Wind: ${forecastDay.wind_speed} km/h</p>
-          <p class="card-text">Pressure: ${forecastDay.pressure}Mb</p>
+          <p class="card-text">Wind: ${Math.round(forecastDay.wind_speed)} km/h</p>
           <p class="card-text">Humadity: ${forecastDay.humidity}%</p>
           
         </div>
