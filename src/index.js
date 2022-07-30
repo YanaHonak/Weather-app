@@ -72,10 +72,11 @@ function displayForecast(response) {
 
           </div>
 
-          <p id="description">${forecastDay.weather[0].descroption}</p>
-          <p class="card-text">Wind: ${forecastDay.weather[0].wind_speed} km/h</p>
-          <p class="card-text">Pressure: ${forecastDay.weather[0].pressure}Mb</p>
-          <p class="card-text">Humadity: ${forecastDay.weather[0].humidity}%</p>
+          <p id="description">${forecastDay.weather[0].description}</p>
+          <p class="card-text">Wind: ${forecastDay.wind_speed} km/h</p>
+          <p class="card-text">Pressure: ${forecastDay.pressure}Mb</p>
+          <p class="card-text">Humadity: ${forecastDay.humidity}%</p>
+          
         </div>
     </div>
     `;
@@ -89,7 +90,7 @@ function displayForecast(response) {
 
 
 function getForecast(coordinates) {
-  console.log(coordinates);
+  //console.log(coordinates);
   let apiKey = "33a44c83fe16603731dff44e3a24880a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
   console.log(apiUrl);
@@ -149,8 +150,8 @@ function success(pos)
 //get coords
 const crd = pos.coords;
 
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
+ // console.log('Your current position is:');
+  //console.log(`Latitude : ${crd.latitude}`);
   
 //get latitude
   let lat = crd.latitude
