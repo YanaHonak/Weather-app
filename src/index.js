@@ -39,6 +39,44 @@ axios.get(`${url}`).then(displayWeather);
 }
 
 
+//added loop forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = `<div class="row row-cols-1 row-cols-md-6 g-3">`;
+  let days = ["Thu", "Fri", "Wed","Sun","Sat","Mon"];
+  days.forEach(function (day) {
+  forecastHTML = forecastHTML + 
+  ` 
+    <div class="card h-55">
+        <div class="card-img-overlay">
+
+        </div>
+        <div class="card-body">
+          <div class="clearfix weather-temperature">
+            <p class="card-day">${day}</p>
+            <img src=" " class="float-left" alt=" ">
+            <span class="card-title" id="today-temperature">32°C</span>
+
+          </div>
+
+          <p id="description">Being developed</p>
+          <p class="card-text">Wind: 11 km/h</p>
+          <p class="card-text">Pressure: Mb</p>
+          <p class="card-text">Humadity: 18%</p>
+        </div>
+    </div>
+    `;  
+  })
+  
+ 
+  forecastHTML= forecastHTML+ `</div>`
+  forecastElement.innerHTML = forecastHTML;
+}
+
+
+
+
 function displayWeather(response) {
   
  
@@ -58,7 +96,9 @@ function displayWeather(response) {
         let pressure = Math.round(response.data.main.pressure);
         let humidity = Math.round(response.data.main.humidity);
         let city = response.data.name;
-
+//!!
+  displayForecast();
+  
   // take the name of the city from API
   console.log(city);
 
