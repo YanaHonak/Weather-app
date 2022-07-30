@@ -8,6 +8,15 @@ let minutes = today.getMinutes();
 ul.innerHTML = `${day},  ${hours}:${minutes}`;
 
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday","Wensday","Thursday","Friday","Saturday"]
+  return days[day];
+  
+}
+  
+  
 getCurrentPosition();
 
 /*findData('Nicosia');*/
@@ -40,33 +49,37 @@ axios.get(`${url}`).then(displayWeather);
 
 
 //added loop forecast
-function displayForecast() {
+function displayForecast(response) {
+ let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   
   let forecastHTML = `<div class="row row-cols-1 row-cols-md-6 g-3">`;
-  let days = ["Thu", "Fri", "Wed","Sun","Sat","Mon"];
-  days.forEach(function (day) {
-  forecastHTML = forecastHTML + 
-  ` 
+  let days = ["Thu", "Fri", "Wed", "Sun", "Sat", "Mon"];
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML = forecastHTML +
+        ` 
     <div class="card h-55">
         <div class="card-img-overlay">
 
         </div>
         <div class="card-body">
           <div class="clearfix weather-temperature">
-            <p class="card-day">${day}</p>
-            <img src=" " class="float-left" alt=" ">
-            <span class="card-title" id="today-temperature">32°C</span>
+            <p class="card-day">${formatDay(forecastDay.dt)}</p>
+            <img 
+            src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" " class="float-left" alt=" ">
+            <span class="card-title" id="today-temperature">${Math.round(forecastDay.temp.day)}°C</span>
 
           </div>
 
-          <p id="description">Being developed</p>
-          <p class="card-text">Wind: 11 km/h</p>
-          <p class="card-text">Pressure: Mb</p>
-          <p class="card-text">Humadity: 18%</p>
+          <p id="description">${forecastDay.weather[0].descroption}</p>
+          <p class="card-text">Wind: ${forecastDay.weather[0].wind_speed} km/h</p>
+          <p class="card-text">Pressure: ${forecastDay.weather[0].pressure}Mb</p>
+          <p class="card-text">Humadity: ${forecastDay.weather[0].humidity}%</p>
         </div>
     </div>
-    `;  
+    `;
+    }  
   })
   
  
@@ -75,7 +88,13 @@ function displayForecast() {
 }
 
 
-
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "33a44c83fe16603731dff44e3a24880a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayWeather(response) {
   
@@ -96,8 +115,6 @@ function displayWeather(response) {
         let pressure = Math.round(response.data.main.pressure);
         let humidity = Math.round(response.data.main.humidity);
         let city = response.data.name;
-//!!
-  displayForecast();
   
   // take the name of the city from API
   console.log(city);
@@ -111,6 +128,9 @@ function displayWeather(response) {
   iconElement.setAttribute(
     "src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );     
+  
+
+  getForecast(response.data.coord);
   
       }
 
