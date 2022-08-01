@@ -84,11 +84,19 @@ margin-bottom: 1px;
 .card.h-55
 {
 height: 100%;
+min-width: 135px;
 }
 
 .card-title
 {
 font-size: 20px;
 line-height: 2;
+}
+
+
+.card-body
+{
+ padding-left: 5px;
+ padding-right: 5px;
 }
 
