@@ -55,7 +55,7 @@ function displayForecast(response) {
   
   let forecastHTML = `<div class="row row-cols-1 row-cols-md-6 g-3">`;
   let days = ["Thu", "Fri", "Wed", "Sun", "Sat", "Mon"];
-  forecast.forEach(function (forecastDay, index) {
+  forecast.slice(1).forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML = forecastHTML +
         ` 

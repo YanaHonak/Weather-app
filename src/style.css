@@ -3,11 +3,11 @@ font-family: Arial, sans-serif;
 font-size: small;
 }
 h1{
-    color: blue;
-    margin-top: 0px;
+color: blue;
+margin-top: 0px;
 }
 h2{
-    margin-top: 20px;
+margin-top: 20px;
 }
 
 
@@ -16,7 +16,7 @@ list-style-type: none;
 }
 
 ul {
-    padding: 0;
+padding: 0;
 }
 
 .key-indicators {
@@ -88,6 +88,7 @@ height: 100%;
 
 .card-title
 {
-    font-size: 20px;
-    line-height: 2;
+font-size: 20px;
+line-height: 2;
 }
+
